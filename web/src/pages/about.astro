@@ -1,0 +1,92 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { aboutContent } from '../data/site';
+---
+
+<Layout title="About us" description="Learn about Deshco Holiday Homes — Dubai's trusted holiday home management company.">
+  <!-- Page hero -->
+  <section class="relative flex min-h-[50vh] items-end overflow-hidden bg-ink">
+    <div class="absolute inset-0">
+      <img
+        src="/images/location-6.jpg"
+        alt=""
+        class="h-full w-full object-cover opacity-40"
+        loading="eager"
+        aria-hidden="true"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/40"></div>
+    </div>
+    <div class="section-padding relative z-10 w-full pb-16 pt-32">
+      <div class="container-narrow">
+        <p class="mb-3 text-xs font-medium tracking-[0.25em] text-gold uppercase">About</p>
+        <h1 class="heading-display text-5xl text-white md:text-6xl">About us</h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who we are -->
+  <section class="section-padding bg-cream">
+    <div class="container-narrow">
+      <h2 class="heading-display mb-10 text-3xl md:text-4xl">{aboutContent.headline}</h2>
+      <div class="space-y-6 text-lg leading-relaxed text-ink-muted">
+        {aboutContent.intro.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="section-padding bg-ink text-white">
+    <div class="container-narrow text-center">
+      <h2 class="heading-display mb-8 text-3xl text-gold md:text-4xl">
+        {aboutContent.experience.title}
+      </h2>
+      <p class="mx-auto max-w-2xl text-lg leading-relaxed text-white/75">
+        {aboutContent.experience.text}
+      </p>
+    </div>
+  </section>
+
+  <!-- Founders -->
+  <section class="section-padding bg-white">
+    <div class="container-wide">
+      <p class="mb-3 text-center text-xs font-medium tracking-[0.25em] text-gold uppercase">
+        Leadership
+      </p>
+      <h2 class="heading-display mb-16 text-center text-3xl md:text-4xl">
+        A message from our founders
+      </h2>
+
+      <div class="grid gap-16 md:grid-cols-2 md:gap-12">
+        {
+          aboutContent.founders.map((founder) => (
+            <blockquote class="relative">
+              <div class="mb-6 h-px w-12 bg-gold"></div>
+              <p class="mb-8 text-lg leading-relaxed text-ink-muted italic">
+                "{founder.message}"
+              </p>
+              <footer>
+                <cite class="heading-display text-xl not-italic text-ink">{founder.name}</cite>
+              </footer>
+            </blockquote>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-padding bg-cream text-center">
+    <div class="container-narrow">
+      <h2 class="heading-display mb-6 text-3xl md:text-4xl">Partner with us</h2>
+      <p class="mx-auto mb-8 max-w-md text-ink-muted">
+        Ready to unlock your property's potential? Let's start the conversation.
+      </p>
+      <a
+        href="/list-your-property"
+        class="inline-block rounded-full bg-ink px-8 py-4 text-sm font-medium tracking-wide text-white transition-all hover:bg-ink-muted"
+      >
+        List your property
+      </a>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,9 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LegalPage from '../components/LegalPage.astro';
+import { cancellationPolicy } from '../data/legal';
+---
+
+<Layout title={cancellationPolicy.title} description="Deshco Holiday Homes cancellation and refund policy.">
+  <LegalPage title={cancellationPolicy.title} sections={cancellationPolicy.sections} />
+</Layout>

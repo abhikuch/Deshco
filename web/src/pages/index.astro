@@ -1,0 +1,214 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HowItWorks from '../components/HowItWorks';
+import LocationGallery from '../components/LocationGallery';
+import ContactForm from '../components/ContactForm';
+import {
+  siteConfig,
+  heroContent,
+  howItWorksSteps,
+  locations,
+  services,
+  transparencyFeatures,
+} from '../data/site';
+---
+
+<Layout>
+  <!-- Hero: full-bleed, edge-to-edge -->
+  <section class="relative flex min-h-[100svh] items-end overflow-hidden">
+    <div class="absolute inset-0">
+      <img
+        src={heroContent.image}
+        alt="Luxury Dubai holiday home interior"
+        class="h-full w-full object-cover"
+        fetchpriority="high"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-ink/20"></div>
+      <div class="absolute inset-0 bg-ink/30"></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 pb-20 pt-32 md:px-12 md:pb-28 lg:px-20">
+      <div class="container-narrow">
+        <p
+          class="mb-4 text-xs font-medium tracking-[0.25em] text-gold uppercase opacity-0 animate-[fadeUp_0.8s_ease-out_0.2s_forwards]"
+        >
+          {heroContent.eyebrow}
+        </p>
+        <h1
+          class="heading-display mb-6 max-w-3xl text-balance text-4xl leading-[1.1] text-white opacity-0 animate-[fadeUp_0.8s_ease-out_0.4s_forwards] md:text-5xl lg:text-6xl"
+        >
+          {heroContent.headline}
+        </h1>
+        <p
+          class="mb-10 max-w-xl text-lg leading-relaxed text-white/75 opacity-0 animate-[fadeUp_0.8s_ease-out_0.6s_forwards]"
+        >
+          {heroContent.subheadline}
+        </p>
+        <div class="flex flex-wrap gap-4 opacity-0 animate-[fadeUp_0.8s_ease-out_0.8s_forwards]">
+          <a
+            href="#contact"
+            class="rounded-full bg-gold px-8 py-4 text-sm font-medium tracking-wide text-ink transition-all hover:bg-gold-light"
+          >
+            {heroContent.cta}
+          </a>
+          <a
+            href="#how-it-works"
+            class="rounded-full border border-white/30 px-8 py-4 text-sm font-medium text-white transition-all hover:border-white hover:bg-white/10"
+          >
+            How it works
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how-it-works" class="section-padding bg-cream">
+    <div class="container-wide">
+      <div class="mb-16 max-w-2xl">
+        <p class="mb-3 text-xs font-medium tracking-[0.25em] text-gold uppercase">Process</p>
+        <h2 class="heading-display text-4xl md:text-5xl">How it works</h2>
+      </div>
+      <HowItWorks client:visible steps={howItWorksSteps} />
+    </div>
+  </section>
+
+  <!-- Locations -->
+  <section class="section-padding overflow-hidden bg-ink text-white">
+    <div class="container-wide mb-12">
+      <p class="mb-3 text-xs font-medium tracking-[0.25em] text-gold uppercase">Coverage</p>
+      <h2 class="heading-display mb-4 text-4xl text-white md:text-5xl">
+        Serving Dubai's prime locations
+      </h2>
+      <p class="max-w-xl text-white/60">
+        Access the finest homes in the most desirable tourist areas in Dubai.
+      </p>
+    </div>
+    <LocationGallery client:visible locations={locations} />
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="section-padding bg-white">
+    <div class="container-wide">
+      <div class="mb-16 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+        <div class="max-w-2xl">
+          <p class="mb-3 text-xs font-medium tracking-[0.25em] text-gold uppercase">What we do</p>
+          <h2 class="heading-display text-4xl md:text-5xl">Our services</h2>
+        </div>
+        <p class="max-w-md text-ink-muted">
+          Full-stack holiday home management — from listing to guest turnover.
+        </p>
+      </div>
+
+      <div class="divide-y divide-ink/10">
+        {
+          services.map((service, index) => (
+            <div class="group grid items-center gap-6 py-10 md:grid-cols-[80px_1fr_2fr] md:gap-12">
+              <span class="text-sm font-medium text-gold/60 tabular-nums">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <div class="flex items-center gap-4">
+                <img
+                  src={service.icon}
+                  alt=""
+                  class="h-10 w-10 opacity-60 transition-opacity group-hover:opacity-100"
+                  width="40"
+                  height="40"
+                  aria-hidden="true"
+                />
+                <h3 class="heading-display text-xl md:text-2xl">{service.title}</h3>
+              </div>
+              <p class="text-ink-muted md:pl-0">{service.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Transparency -->
+  <section class="section-padding bg-cream">
+    <div class="container-wide">
+      <div class="grid gap-16 lg:grid-cols-2 lg:gap-24">
+        <div class="lg:sticky lg:top-32 lg:self-start">
+          <p class="mb-3 text-xs font-medium tracking-[0.25em] text-gold uppercase">Trust</p>
+          <h2 class="heading-display mb-6 text-4xl md:text-5xl">Owner-first transparency</h2>
+          <p class="max-w-md text-ink-muted">
+            No hidden fees, no surprises. Every payout, expense, and inspection documented.
+          </p>
+        </div>
+
+        <div class="space-y-0">
+          {
+            transparencyFeatures.map((feature) => (
+              <div class="border-b border-ink/10 py-8 first:pt-0 last:border-b-0">
+                <h3 class="heading-display mb-3 text-xl md:text-2xl">{feature.title}</h3>
+                <p class="text-ink-muted">{feature.description}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA + Contact -->
+  <section id="contact" class="relative overflow-hidden">
+    <div class="absolute inset-0">
+      <img
+        src="/images/location-5.jpg"
+        alt=""
+        class="h-full w-full object-cover"
+        loading="lazy"
+        aria-hidden="true"
+      />
+      <div class="absolute inset-0 bg-ink/85"></div>
+    </div>
+
+    <div class="section-padding relative z-10">
+      <div class="container-wide grid gap-16 lg:grid-cols-2 lg:gap-24">
+        <div>
+          <p class="mb-3 text-xs font-medium tracking-[0.25em] text-gold uppercase">Get started</p>
+          <h2 class="heading-display mb-6 text-4xl text-white md:text-5xl">
+            Ready to list your Dubai home?
+          </h2>
+          <p class="mb-8 max-w-md text-white/70">
+            Share your property details and we'll provide a tailored revenue estimate within 48 hours.
+          </p>
+
+          <div class="space-y-4 text-sm text-white/60">
+            <p>
+              <a href={siteConfig.phoneHref} class="text-white transition-colors hover:text-gold">
+                {siteConfig.phone}
+              </a>
+            </p>
+            <p>
+              <a
+                href={`mailto:${siteConfig.email}`}
+                class="text-white transition-colors hover:text-gold"
+              >
+                {siteConfig.email}
+              </a>
+            </p>
+            <p>{siteConfig.address}</p>
+          </div>
+        </div>
+
+        <ContactForm client:visible />
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

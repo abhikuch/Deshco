@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm';
+import { partnerBenefits } from '../data/site';
+---
+
+<Layout
+  title="List your property"
+  description="Partner with Deshco Holiday Homes to turn your Dubai property into a high-performing holiday rental."
+>
+  <section class="relative flex min-h-[60vh] items-end overflow-hidden bg-ink">
+    <div class="absolute inset-0">
+      <img
+        src="/images/location-1.jpg"
+        alt=""
+        class="h-full w-full object-cover opacity-50"
+        loading="eager"
+        aria-hidden="true"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/30"></div>
+    </div>
+    <div class="section-padding relative z-10 w-full pb-16 pt-32">
+      <div class="container-narrow">
+        <p class="mb-3 text-xs font-medium tracking-[0.25em] text-gold uppercase">For homeowners</p>
+        <h1 class="heading-display mb-6 max-w-2xl text-4xl text-white md:text-5xl lg:text-6xl">
+          Partner as a property owner
+        </h1>
+        <p class="max-w-xl text-lg text-white/75">
+          Discover the true potential of your home with hassle-free holiday rentals — list with
+          Deshco for the ultimate homeowner experience.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding bg-cream">
+    <div class="container-wide">
+      <div class="mb-16 max-w-2xl">
+        <p class="mb-3 text-xs font-medium tracking-[0.25em] text-gold uppercase">Benefits</p>
+        <h2 class="heading-display text-3xl md:text-4xl">Why choose us as your partners?</h2>
+      </div>
+
+      <div class="grid gap-px bg-ink/10 md:grid-cols-2">
+        {
+          partnerBenefits.map((benefit, index) => (
+            <div class="bg-cream p-10 md:p-12">
+              <span class="mb-4 block text-sm font-medium text-gold">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <h3 class="heading-display mb-4 text-2xl">{benefit.title}</h3>
+              <p class="leading-relaxed text-ink-muted">{benefit.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section-padding bg-ink">
+    <div class="container-wide grid gap-16 lg:grid-cols-2 lg:gap-24">
+      <div>
+        <p class="mb-3 text-xs font-medium tracking-[0.25em] text-gold uppercase">Enquire</p>
+        <h2 class="heading-display mb-6 text-3xl text-white md:text-4xl">
+          Get your free revenue estimate
+        </h2>
+        <p class="max-w-md text-white/70">
+          Tell us about your property and we'll share a tailored projection of your holiday home's
+          earning potential.
+        </p>
+      </div>
+      <ContactForm client:visible />
+    </div>
+  </section>
+</Layout>

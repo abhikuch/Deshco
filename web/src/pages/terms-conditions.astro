@@ -1,0 +1,9 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LegalPage from '../components/LegalPage.astro';
+import { termsConditions } from '../data/legal';
+---
+
+<Layout title={termsConditions.title} description="Deshco Holiday Homes terms and conditions.">
+  <LegalPage title={termsConditions.title} sections={termsConditions.sections} />
+</Layout>

@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+
+  --color-ink: #0f0e0c;
+  --color-ink-muted: #3d3a35;
+  --color-cream: #f5f0e8;
+  --color-cream-dark: #e8e0d4;
+  --color-gold: #c4a574;
+  --color-gold-light: #d4bc94;
+  --color-sand: #a89578;
+  --color-white: #faf8f5;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-cream text-ink-muted font-body antialiased;
+  }
+
+  ::selection {
+    @apply bg-gold/30 text-ink;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .section-padding {
+    @apply px-6 py-24 md:px-12 lg:px-20 lg:py-32;
+  }
+
+  .container-narrow {
+    @apply mx-auto max-w-6xl;
+  }
+
+  .container-wide {
+    @apply mx-auto max-w-7xl;
+  }
+
+  .heading-display {
+    @apply font-display font-medium tracking-tight text-ink;
+  }
+
+  .link-underline {
+    @apply relative inline-block after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all hover:after:w-full;
+  }
+}

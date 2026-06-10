@@ -1,0 +1,9 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LegalPage from '../components/LegalPage.astro';
+import { privacyPolicy } from '../data/legal';
+---
+
+<Layout title={privacyPolicy.title} description="Deshco Holiday Homes privacy policy.">
+  <LegalPage title={privacyPolicy.title} sections={privacyPolicy.sections} />
+</Layout>
