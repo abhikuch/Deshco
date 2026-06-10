@@ -12,20 +12,20 @@ interface Props {
 const { title, sections } = Astro.props;
 ---
 
-<section class="bg-cream pt-32 pb-8">
+<section class="border-b border-ink/8 bg-cream pt-28 pb-10">
   <div class="container-narrow">
-    <p class="mb-3 text-xs font-medium tracking-[0.25em] text-gold uppercase">Legal</p>
-    <h1 class="heading-display text-4xl md:text-5xl">{title}</h1>
+    <p class="eyebrow mb-3">Legal</p>
+    <h1 class="heading-display text-4xl text-ink md:text-5xl">{title}</h1>
   </div>
 </section>
 
 <section class="section-padding bg-white pt-12">
-  <div class="container-narrow prose-policy space-y-10">
+  <div class="container-narrow space-y-10">
     {
       sections.map((section) => (
-        <div>
-          <h2 class="heading-display mb-4 text-2xl">{section.heading}</h2>
-          <div class="space-y-4 leading-relaxed whitespace-pre-line text-ink-muted">
+        <div class="border-t border-ink/10 pt-8 first:border-t-0 first:pt-0">
+          <h2 class="heading-display mb-4 text-2xl text-ink">{section.heading}</h2>
+          <div class="space-y-4 whitespace-pre-line text-[15px] leading-relaxed text-ink-muted">
             {section.content}
           </div>
         </div>

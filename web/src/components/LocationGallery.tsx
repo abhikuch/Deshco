@@ -1,5 +1,4 @@
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 type Location = {
   name: string;
@@ -11,44 +10,40 @@ type Props = {
 };
 
 export default function LocationGallery({ locations }: Props) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollXProgress } = useScroll({ container: containerRef });
-
-  const opacity = useTransform(scrollXProgress, [0, 0.1, 0.9, 1], [0.6, 1, 1, 0.6]);
-
   return (
     <div className="relative">
-      <motion.div
-        ref={containerRef}
-        style={{ opacity }}
-        className="flex gap-6 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-      >
-        {locations.map((location, index) => (
-          <motion.figure
-            key={location.name}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
-            className="group relative min-w-[280px] flex-shrink-0 overflow-hidden rounded-2xl md:min-w-[360px]"
-          >
-            <div className="aspect-[4/5] overflow-hidden">
-              <img
-                src={location.image}
-                alt={location.name}
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                loading="lazy"
-              />
-            </div>
-            <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/90 via-ink/50 to-transparent p-6 pt-16">
-              <span className="text-xs font-medium tracking-widest text-gold uppercase">
-                Dubai
-              </span>
-              <h3 className="heading-display mt-1 text-2xl text-white">{location.name}</h3>
-            </figcaption>
-          </motion.figure>
-        ))}
-      </motion.div>
+      <div className="container-wide">
+        <div className="flex gap-5 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] md:gap-6 [&::-webkit-scrollbar]:hidden">
+          {locations.map((location, index) => (
+            <motion.figure
+              key={location.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              className="group relative min-w-[240px] flex-shrink-0 overflow-hidden md:min-w-[300px] lg:min-w-[320px]"
+            >
+              <div className="aspect-[3/4] overflow-hidden bg-ink-soft">
+                <img
+                  src={location.image}
+                  alt={location.name}
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  loading="lazy"
+                />
+              </div>
+              <figcaption className="absolute inset-x-0 bottom-0 px-5 pb-5 pt-20">
+                <div className="image-scrim pointer-events-none absolute inset-0" aria-hidden="true" />
+                <div className="relative">
+                  <span className="eyebrow text-gold-bright">Dubai</span>
+                  <h3 className="heading-display mt-1 text-xl text-white md:text-2xl">
+                    {location.name}
+                  </h3>
+                </div>
+              </figcaption>
+            </motion.figure>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

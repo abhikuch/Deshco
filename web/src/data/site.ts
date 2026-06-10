@@ -173,11 +173,17 @@ export const aboutContent = {
   founders: [
     {
       name: 'Anish Deshpande',
+      role: 'Co-founder',
+      image: '/images/founders/anish-deshpande.jpg',
+      linkedin: 'https://in.linkedin.com/in/anishsdeshpande',
       message:
         "Deshco Holiday Homes was founded to make private luxury stays accessible to guests seeking refined escapes across Dubai and the UAE — from iconic city stays near Downtown and the Marina to serene retreats along the coast and desert. Our aim is to create an aspirational hospitality experience, inviting guests to immerse themselves in the elegance and privacy of ultra-luxurious homes — curated to the standards of the region's most discerning homeowners.",
     },
     {
       name: 'Manisha Garje',
+      role: 'Co-founder',
+      image: '/images/founders/manisha-garje.jpg',
+      linkedin: 'https://www.linkedin.com/in/manisha-garje/',
       message:
         "Deshco Holiday Homes began with one belief: holidays should feel personal, not transactional — a place where you don't just stay, you belong. Each home is thoughtfully curated to feel warm, private, and effortlessly comfortable, so your getaway becomes a memory you'll return to. Thank you for trusting us to be part of your journey.",
     },

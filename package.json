@@ -1,0 +1,10 @@
+{
+  "name": "deshco",
+  "private": true,
+  "scripts": {
+    "build": "npm run build --prefix web && mkdir -p .vercel/output && cp -R web/.vercel/output/. .vercel/output/"
+  },
+  "engines": {
+    "node": "22.x"
+  }
+}

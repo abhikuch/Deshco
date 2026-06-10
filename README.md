@@ -63,12 +63,19 @@ Static content in `src/data/` serves as fallback until Sanity is populated.
 
 ## Deploy to Vercel
 
-```bash
-cd web
-npx vercel
-```
+Vercel is wired for Git deploys from the repo root. The Astro app lives in `web/`; root `vercel.json` and `package.json` handle install, build, and output routing.
 
-Set environment variables in the Vercel dashboard. Verify your domain in Resend before sending from `@deshco.ae`.
+**Required environment variables** (Vercel dashboard → Project → Settings → Environment Variables):
+
+| Variable | Environments |
+|----------|--------------|
+| `PUBLIC_SANITY_PROJECT_ID` | Production, Preview |
+| `PUBLIC_SANITY_DATASET` | Production, Preview |
+| `RESEND_API_KEY` | Production, Preview |
+| `RESEND_FROM_EMAIL` | Production, Preview |
+| `RESEND_TO_EMAIL` | Production, Preview |
+
+Push to `main` to trigger a production deploy. Verify your domain in Resend before sending from `@deshco.ae`.
 
 ## Design
 

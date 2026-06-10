@@ -4,86 +4,111 @@ import { aboutContent } from '../data/site';
 ---
 
 <Layout title="About us" description="Learn about Deshco Holiday Homes — Dubai's trusted holiday home management company.">
-  <!-- Page hero -->
-  <section class="relative flex min-h-[50vh] items-end overflow-hidden bg-ink">
+  <section data-hero class="relative flex min-h-[55vh] items-end overflow-hidden bg-ink-soft">
     <div class="absolute inset-0">
       <img
         src="/images/location-6.jpg"
         alt=""
-        class="h-full w-full object-cover opacity-40"
+        class="h-full w-full object-cover"
         loading="eager"
         aria-hidden="true"
       />
-      <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/40"></div>
+      <div class="hero-scrim absolute inset-0" aria-hidden="true"></div>
     </div>
-    <div class="section-padding relative z-10 w-full pb-16 pt-32">
+    <div class="section-padding relative z-10 w-full pb-14 pt-28">
       <div class="container-narrow">
-        <p class="mb-3 text-xs font-medium tracking-[0.25em] text-gold uppercase">About</p>
-        <h1 class="heading-display text-5xl text-white md:text-6xl">About us</h1>
+        <p class="eyebrow mb-4 text-gold-bright">About</p>
+        <h1 class="heading-display text-4xl text-white md:text-5xl">About us</h1>
       </div>
     </div>
   </section>
 
-  <!-- Who we are -->
   <section class="section-padding bg-cream">
     <div class="container-narrow">
-      <h2 class="heading-display mb-10 text-3xl md:text-4xl">{aboutContent.headline}</h2>
-      <div class="space-y-6 text-lg leading-relaxed text-ink-muted">
+      <h2 class="heading-display mb-8 text-3xl text-ink md:text-4xl">{aboutContent.headline}</h2>
+      <div class="space-y-5 text-[16px] leading-relaxed text-ink-muted md:text-[17px]">
         {aboutContent.intro.map((paragraph) => <p>{paragraph}</p>)}
       </div>
     </div>
   </section>
 
-  <!-- Experience -->
-  <section class="section-padding bg-ink text-white">
-    <div class="container-narrow text-center">
-      <h2 class="heading-display mb-8 text-3xl text-gold md:text-4xl">
-        {aboutContent.experience.title}
-      </h2>
-      <p class="mx-auto max-w-2xl text-lg leading-relaxed text-white/75">
+  <section class="section-padding border-y border-ink/8 bg-cream-dark">
+    <div class="container-narrow">
+      <p class="eyebrow mb-4">{aboutContent.experience.title}</p>
+      <p class="max-w-2xl text-[17px] leading-relaxed text-ink md:text-xl md:leading-relaxed">
         {aboutContent.experience.text}
       </p>
     </div>
   </section>
 
-  <!-- Founders -->
   <section class="section-padding bg-white">
     <div class="container-wide">
-      <p class="mb-3 text-center text-xs font-medium tracking-[0.25em] text-gold uppercase">
-        Leadership
-      </p>
-      <h2 class="heading-display mb-16 text-center text-3xl md:text-4xl">
-        A message from our founders
-      </h2>
+      <div class="mb-14 max-w-xl">
+        <p class="eyebrow mb-3">Leadership</p>
+        <h2 class="heading-display text-3xl text-ink md:text-4xl">A message from our founders</h2>
+      </div>
 
-      <div class="grid gap-16 md:grid-cols-2 md:gap-12">
+      <div class="space-y-20 md:space-y-28">
         {
-          aboutContent.founders.map((founder) => (
-            <blockquote class="relative">
-              <div class="mb-6 h-px w-12 bg-gold"></div>
-              <p class="mb-8 text-lg leading-relaxed text-ink-muted italic">
-                "{founder.message}"
-              </p>
-              <footer>
-                <cite class="heading-display text-xl not-italic text-ink">{founder.name}</cite>
-              </footer>
-            </blockquote>
+          aboutContent.founders.map((founder, index) => (
+            <article
+              class:list={[
+                'grid items-center gap-10 md:grid-cols-2 md:gap-14 lg:gap-20',
+                index % 2 === 1 && 'md:[&>div:first-child]:order-2',
+              ]}
+            >
+              <div class="overflow-hidden bg-cream-dark">
+                <img
+                  src={founder.image}
+                  alt={founder.name}
+                  class:list={[
+                    'h-full w-full object-cover',
+                    index === 0 ? 'aspect-[4/5] max-h-[520px]' : 'aspect-square max-h-[480px]',
+                  ]}
+                  loading="lazy"
+                  width="980"
+                  height={index === 0 ? '1224' : '980'}
+                />
+              </div>
+
+              <blockquote class="border-t border-ink/12 pt-8 md:border-t-0 md:pt-0">
+                <p class="mb-8 text-[16px] leading-relaxed text-ink-muted md:text-[17px]">
+                  {founder.message}
+                </p>
+                <footer class="flex items-end justify-between gap-4">
+                  <div>
+                    <cite class="heading-display block text-xl not-italic text-ink md:text-2xl">
+                      {founder.name}
+                    </cite>
+                    <span class="mt-1 block text-sm text-ink-faint">{founder.role}</span>
+                  </div>
+                  <a
+                    href={founder.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-[13px] font-medium tracking-wide text-gold-muted transition-colors hover:text-gold"
+                    aria-label={`${founder.name} on LinkedIn`}
+                  >
+                    LinkedIn
+                  </a>
+                </footer>
+              </blockquote>
+            </article>
           ))
         }
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="section-padding bg-cream text-center">
+  <section class="section-padding bg-ink-soft text-center">
     <div class="container-narrow">
-      <h2 class="heading-display mb-6 text-3xl md:text-4xl">Partner with us</h2>
-      <p class="mx-auto mb-8 max-w-md text-ink-muted">
+      <h2 class="heading-display mb-4 text-3xl text-white md:text-4xl">Partner with us</h2>
+      <p class="mx-auto mb-8 max-w-md text-[15px] text-white/75">
         Ready to unlock your property's potential? Let's start the conversation.
       </p>
       <a
         href="/list-your-property"
-        class="inline-block rounded-full bg-ink px-8 py-4 text-sm font-medium tracking-wide text-white transition-all hover:bg-ink-muted"
+        class="inline-flex items-center border border-gold-bright px-6 py-3 text-[13px] font-medium tracking-wide text-gold-bright transition-colors hover:bg-gold-bright hover:text-ink"
       >
         List your property
       </a>

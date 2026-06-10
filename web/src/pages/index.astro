@@ -14,46 +14,42 @@ import {
 ---
 
 <Layout>
-  <!-- Hero: full-bleed, edge-to-edge -->
-  <section class="relative flex min-h-[100svh] items-end overflow-hidden">
+  <section data-hero class="relative flex min-h-[100svh] items-end overflow-hidden">
     <div class="absolute inset-0">
       <img
         src={heroContent.image}
         alt="Luxury Dubai holiday home interior"
-        class="h-full w-full object-cover"
+        class="h-full w-full scale-105 object-cover"
         fetchpriority="high"
       />
-      <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-ink/20"></div>
-      <div class="absolute inset-0 bg-ink/30"></div>
+      <div class="hero-scrim absolute inset-0" aria-hidden="true"></div>
     </div>
 
-    <div class="relative z-10 w-full px-6 pb-20 pt-32 md:px-12 md:pb-28 lg:px-20">
-      <div class="container-narrow">
-        <p
-          class="mb-4 text-xs font-medium tracking-[0.25em] text-gold uppercase opacity-0 animate-[fadeUp_0.8s_ease-out_0.2s_forwards]"
-        >
+    <div class="relative z-10 w-full px-6 pb-16 pt-28 md:px-10 md:pb-24 lg:px-16">
+      <div class="container-narrow max-w-2xl">
+        <p class="eyebrow mb-5 text-gold-bright opacity-0 animate-[fadeUp_0.7s_ease-out_0.15s_forwards]">
           {heroContent.eyebrow}
         </p>
         <h1
-          class="heading-display mb-6 max-w-3xl text-balance text-4xl leading-[1.1] text-white opacity-0 animate-[fadeUp_0.8s_ease-out_0.4s_forwards] md:text-5xl lg:text-6xl"
+          class="heading-display mb-5 text-balance text-[2.35rem] leading-[1.08] text-white opacity-0 animate-[fadeUp_0.7s_ease-out_0.3s_forwards] md:text-5xl lg:text-[3.25rem]"
         >
           {heroContent.headline}
         </h1>
         <p
-          class="mb-10 max-w-xl text-lg leading-relaxed text-white/75 opacity-0 animate-[fadeUp_0.8s_ease-out_0.6s_forwards]"
+          class="mb-9 max-w-lg text-[16px] leading-relaxed text-white/88 opacity-0 animate-[fadeUp_0.7s_ease-out_0.45s_forwards] md:text-[17px]"
         >
           {heroContent.subheadline}
         </p>
-        <div class="flex flex-wrap gap-4 opacity-0 animate-[fadeUp_0.8s_ease-out_0.8s_forwards]">
+        <div class="flex flex-wrap gap-3 opacity-0 animate-[fadeUp_0.7s_ease-out_0.6s_forwards]">
           <a
             href="#contact"
-            class="rounded-full bg-gold px-8 py-4 text-sm font-medium tracking-wide text-ink transition-all hover:bg-gold-light"
+            class="inline-flex items-center bg-gold-bright px-6 py-3 text-[13px] font-medium tracking-wide text-ink transition-colors hover:bg-white"
           >
             {heroContent.cta}
           </a>
           <a
             href="#how-it-works"
-            class="rounded-full border border-white/30 px-8 py-4 text-sm font-medium text-white transition-all hover:border-white hover:bg-white/10"
+            class="inline-flex items-center border border-white/35 px-6 py-3 text-[13px] font-medium tracking-wide text-white transition-colors hover:border-white hover:bg-white/8"
           >
             How it works
           </a>
@@ -62,40 +58,37 @@ import {
     </div>
   </section>
 
-  <!-- How it works -->
   <section id="how-it-works" class="section-padding bg-cream">
     <div class="container-wide">
-      <div class="mb-16 max-w-2xl">
-        <p class="mb-3 text-xs font-medium tracking-[0.25em] text-gold uppercase">Process</p>
-        <h2 class="heading-display text-4xl md:text-5xl">How it works</h2>
+      <div class="mb-14 max-w-xl">
+        <p class="eyebrow mb-3">Process</p>
+        <h2 class="heading-display text-4xl text-ink md:text-[2.75rem]">How it works</h2>
       </div>
       <HowItWorks client:visible steps={howItWorksSteps} />
     </div>
   </section>
 
-  <!-- Locations -->
-  <section class="section-padding overflow-hidden bg-ink text-white">
-    <div class="container-wide mb-12">
-      <p class="mb-3 text-xs font-medium tracking-[0.25em] text-gold uppercase">Coverage</p>
-      <h2 class="heading-display mb-4 text-4xl text-white md:text-5xl">
-        Serving Dubai's prime locations
+  <section class="section-padding bg-ink text-white">
+    <div class="container-wide mb-10">
+      <p class="eyebrow mb-3 text-gold-bright">Coverage</p>
+      <h2 class="heading-display mb-3 text-4xl text-white md:text-[2.75rem]">
+        Dubai's prime locations
       </h2>
-      <p class="max-w-xl text-white/60">
-        Access the finest homes in the most desirable tourist areas in Dubai.
+      <p class="max-w-lg text-[15px] text-white/72">
+        Access the finest homes in the most desirable tourist areas across the city.
       </p>
     </div>
     <LocationGallery client:visible locations={locations} />
   </section>
 
-  <!-- Services -->
   <section id="services" class="section-padding bg-white">
     <div class="container-wide">
-      <div class="mb-16 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-        <div class="max-w-2xl">
-          <p class="mb-3 text-xs font-medium tracking-[0.25em] text-gold uppercase">What we do</p>
-          <h2 class="heading-display text-4xl md:text-5xl">Our services</h2>
+      <div class="mb-14 flex flex-col justify-between gap-5 border-b border-ink/10 pb-10 md:flex-row md:items-end">
+        <div class="max-w-xl">
+          <p class="eyebrow mb-3">What we do</p>
+          <h2 class="heading-display text-4xl text-ink md:text-[2.75rem]">Our services</h2>
         </div>
-        <p class="max-w-md text-ink-muted">
+        <p class="max-w-sm text-[15px] text-ink-muted">
           Full-stack holiday home management — from listing to guest turnover.
         </p>
       </div>
@@ -103,47 +96,36 @@ import {
       <div class="divide-y divide-ink/10">
         {
           services.map((service, index) => (
-            <div class="group grid items-center gap-6 py-10 md:grid-cols-[80px_1fr_2fr] md:gap-12">
-              <span class="text-sm font-medium text-gold/60 tabular-nums">
+            <article class="grid gap-3 py-8 md:grid-cols-[4rem_1fr_1.4fr] md:items-baseline md:gap-10 md:py-9">
+              <span class="font-display text-2xl text-gold-muted tabular-nums">
                 {String(index + 1).padStart(2, '0')}
               </span>
-              <div class="flex items-center gap-4">
-                <img
-                  src={service.icon}
-                  alt=""
-                  class="h-10 w-10 opacity-60 transition-opacity group-hover:opacity-100"
-                  width="40"
-                  height="40"
-                  aria-hidden="true"
-                />
-                <h3 class="heading-display text-xl md:text-2xl">{service.title}</h3>
-              </div>
-              <p class="text-ink-muted md:pl-0">{service.description}</p>
-            </div>
+              <h3 class="heading-display text-xl text-ink md:text-2xl">{service.title}</h3>
+              <p class="text-[15px] leading-relaxed text-ink-muted">{service.description}</p>
+            </article>
           ))
         }
       </div>
     </div>
   </section>
 
-  <!-- Transparency -->
-  <section class="section-padding bg-cream">
+  <section class="section-padding bg-cream-dark">
     <div class="container-wide">
-      <div class="grid gap-16 lg:grid-cols-2 lg:gap-24">
-        <div class="lg:sticky lg:top-32 lg:self-start">
-          <p class="mb-3 text-xs font-medium tracking-[0.25em] text-gold uppercase">Trust</p>
-          <h2 class="heading-display mb-6 text-4xl md:text-5xl">Owner-first transparency</h2>
-          <p class="max-w-md text-ink-muted">
+      <div class="grid gap-12 lg:grid-cols-2 lg:gap-20">
+        <div class="lg:sticky lg:top-28 lg:self-start">
+          <p class="eyebrow mb-3">Trust</p>
+          <h2 class="heading-display mb-4 text-4xl text-ink md:text-[2.75rem]">Owner-first transparency</h2>
+          <p class="max-w-md text-[15px] text-ink-muted">
             No hidden fees, no surprises. Every payout, expense, and inspection documented.
           </p>
         </div>
 
-        <div class="space-y-0">
+        <div class="divide-y divide-ink/10 border-t border-ink/10">
           {
             transparencyFeatures.map((feature) => (
-              <div class="border-b border-ink/10 py-8 first:pt-0 last:border-b-0">
-                <h3 class="heading-display mb-3 text-xl md:text-2xl">{feature.title}</h3>
-                <p class="text-ink-muted">{feature.description}</p>
+              <div class="py-8 first:pt-8">
+                <h3 class="heading-display mb-2.5 text-xl text-ink md:text-2xl">{feature.title}</h3>
+                <p class="text-[15px] leading-relaxed text-ink-muted">{feature.description}</p>
               </div>
             ))
           }
@@ -152,50 +134,45 @@ import {
     </div>
   </section>
 
-  <!-- CTA + Contact -->
-  <section id="contact" class="relative overflow-hidden">
-    <div class="absolute inset-0">
-      <img
-        src="/images/location-5.jpg"
-        alt=""
-        class="h-full w-full object-cover"
-        loading="lazy"
-        aria-hidden="true"
-      />
-      <div class="absolute inset-0 bg-ink/85"></div>
-    </div>
+  <section id="contact" class="section-padding bg-ink-soft">
+    <div class="container-wide grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-start">
+      <div class="lg:sticky lg:top-28">
+        <p class="eyebrow mb-3 text-gold-bright">Get started</p>
+        <h2 class="heading-display mb-4 text-4xl text-white md:text-[2.75rem]">
+          Ready to list your Dubai home?
+        </h2>
+        <p class="mb-8 max-w-md text-[15px] leading-relaxed text-white/78">
+          Share your property details and we'll provide a tailored revenue estimate within 48 hours.
+        </p>
 
-    <div class="section-padding relative z-10">
-      <div class="container-wide grid gap-16 lg:grid-cols-2 lg:gap-24">
-        <div>
-          <p class="mb-3 text-xs font-medium tracking-[0.25em] text-gold uppercase">Get started</p>
-          <h2 class="heading-display mb-6 text-4xl text-white md:text-5xl">
-            Ready to list your Dubai home?
-          </h2>
-          <p class="mb-8 max-w-md text-white/70">
-            Share your property details and we'll provide a tailored revenue estimate within 48 hours.
-          </p>
-
-          <div class="space-y-4 text-sm text-white/60">
-            <p>
-              <a href={siteConfig.phoneHref} class="text-white transition-colors hover:text-gold">
+        <dl class="space-y-3 text-sm">
+          <div>
+            <dt class="eyebrow mb-1 text-white/50">Phone</dt>
+            <dd>
+              <a href={siteConfig.phoneHref} class="text-white transition-colors hover:text-gold-bright">
                 {siteConfig.phone}
               </a>
-            </p>
-            <p>
+            </dd>
+          </div>
+          <div>
+            <dt class="eyebrow mb-1 text-white/50">Email</dt>
+            <dd>
               <a
                 href={`mailto:${siteConfig.email}`}
-                class="text-white transition-colors hover:text-gold"
+                class="text-white transition-colors hover:text-gold-bright"
               >
                 {siteConfig.email}
               </a>
-            </p>
-            <p>{siteConfig.address}</p>
+            </dd>
           </div>
-        </div>
-
-        <ContactForm client:visible />
+          <div>
+            <dt class="eyebrow mb-1 text-white/50">Office</dt>
+            <dd class="text-white/72">{siteConfig.address}</dd>
+          </div>
+        </dl>
       </div>
+
+      <ContactForm client:visible />
     </div>
   </section>
 </Layout>
@@ -204,7 +181,7 @@ import {
   @keyframes fadeUp {
     from {
       opacity: 0;
-      transform: translateY(24px);
+      transform: translateY(18px);
     }
     to {
       opacity: 1;
