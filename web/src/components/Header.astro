@@ -5,11 +5,11 @@ import BrandMark from './BrandMark.astro';
 
 <header
   id="site-header"
-  class="fixed top-0 right-0 left-0 z-50 border-b border-transparent backdrop-blur-sm transition-all duration-300"
+  class="fixed top-0 right-0 left-0 z-[110] border-b border-transparent backdrop-blur-sm transition-all duration-300"
   data-theme="dark"
 >
-  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-10">
-    <a href="/" class="relative z-10" aria-label="Deshco Holiday Homes">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 sm:px-6 sm:py-4 md:px-10">
+    <a href="/" class="relative z-[120]" aria-label="Deshco Holiday Homes">
       <BrandMark size="sm" />
     </a>
 
@@ -40,55 +40,83 @@ import BrandMark from './BrandMark.astro';
     <button
       id="mobile-menu-btn"
       type="button"
-      class="relative z-10 flex h-9 w-9 items-center justify-center lg:hidden"
+      class="relative z-[120] flex h-10 w-10 items-center justify-center lg:hidden"
       aria-label="Open menu"
       aria-expanded="false"
+      aria-controls="mobile-menu"
     >
       <span class="sr-only">Menu</span>
-      <div class="flex flex-col gap-1.5">
-        <span class="menu-line block h-px w-5 transition-all"></span>
-        <span class="menu-line block h-px w-5 transition-all"></span>
+      <div class="relative h-3.5 w-5">
+        <span class="menu-line absolute top-0 left-0 block h-px w-5 transition-all duration-300"></span>
+        <span class="menu-line absolute top-1.5 left-0 block h-px w-5 transition-all duration-300"></span>
+        <span class="menu-line absolute top-3 left-0 block h-px w-5 transition-all duration-300"></span>
       </div>
     </button>
   </div>
-
-  <div
-    id="mobile-menu"
-    class="pointer-events-none fixed inset-0 z-40 flex flex-col justify-center bg-ink/97 opacity-0 backdrop-blur-md transition-opacity duration-300 lg:hidden"
-  >
-    <nav class="flex flex-col items-center gap-7" aria-label="Mobile navigation">
-      {
-        navLinks.map((link) => (
-          <a
-            href={link.href}
-            class="font-display text-3xl font-normal text-white transition-colors hover:text-gold-bright"
-          >
-            {link.label}
-          </a>
-        ))
-      }
-      <a
-        href={siteConfig.whatsapp}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="mt-2 border border-gold-bright px-6 py-2.5 text-[13px] font-medium tracking-wide text-gold-bright"
-      >
-        Enquire
-      </a>
-    </nav>
-  </div>
 </header>
+
+<div
+  id="mobile-menu"
+  class="pointer-events-none fixed inset-0 z-[100] bg-ink opacity-0 transition-opacity duration-300 lg:hidden"
+  aria-hidden="true"
+>
+  <nav
+    class="flex h-full flex-col gap-6 overflow-y-auto px-6 pt-24 pb-8"
+    aria-label="Mobile navigation"
+  >
+    {
+      navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="font-display text-[1.65rem] leading-tight text-white transition-colors hover:text-gold-bright"
+        >
+          {link.label}
+        </a>
+      ))
+    }
+    <a
+      href={siteConfig.whatsapp}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-2 inline-flex w-fit border border-gold-bright px-6 py-3 text-[13px] font-medium tracking-wide text-gold-bright"
+    >
+      Enquire on WhatsApp
+    </a>
+  </nav>
+</div>
 
 <script>
   const header = document.getElementById('site-header');
   const menuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
+  const menuLines = menuBtn?.querySelectorAll('.menu-line');
   let menuOpen = false;
 
   function isOverHero() {
     const hero = document.querySelector('[data-hero]');
     if (!hero) return window.scrollY <= 80;
     return hero.getBoundingClientRect().bottom > 72;
+  }
+
+  function setMenuOpen(open: boolean) {
+    menuOpen = open;
+    menuBtn?.setAttribute('aria-expanded', String(open));
+    menuBtn?.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    mobileMenu?.classList.toggle('opacity-0', !open);
+    mobileMenu?.classList.toggle('pointer-events-none', !open);
+    mobileMenu?.setAttribute('aria-hidden', String(!open));
+    document.body.classList.toggle('overflow-hidden', open);
+    document.body.classList.toggle('mobile-menu-open', open);
+
+    menuLines?.[0]?.classList.toggle('top-1.5', open);
+    menuLines?.[0]?.classList.toggle('rotate-45', open);
+    menuLines?.[1]?.classList.toggle('opacity-0', open);
+    menuLines?.[2]?.classList.toggle('top-1.5', open);
+    menuLines?.[2]?.classList.toggle('-rotate-45', open);
+
+    window.dispatchEvent(new CustomEvent('mobile-menu-toggle', { detail: { open } }));
+
+    if (!open) updateHeader();
   }
 
   function updateHeader() {
@@ -102,12 +130,7 @@ import BrandMark from './BrandMark.astro';
   }
 
   function toggleMenu() {
-    menuOpen = !menuOpen;
-    menuBtn?.setAttribute('aria-expanded', String(menuOpen));
-    mobileMenu?.classList.toggle('opacity-0', !menuOpen);
-    mobileMenu?.classList.toggle('pointer-events-none', !menuOpen);
-    document.body.style.overflow = menuOpen ? 'hidden' : '';
-    if (!menuOpen) updateHeader();
+    setMenuOpen(!menuOpen);
   }
 
   window.addEventListener('scroll', updateHeader, { passive: true });
@@ -117,7 +140,7 @@ import BrandMark from './BrandMark.astro';
 
   mobileMenu?.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
-      if (menuOpen) toggleMenu();
+      if (menuOpen) setMenuOpen(false);
     });
   });
 </script>

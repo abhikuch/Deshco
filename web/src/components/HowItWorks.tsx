@@ -25,7 +25,7 @@ export default function HowItWorks({ steps }: Props) {
       <div className="lg:sticky lg:top-28">
         <motion.div
           style={{ y: imageY }}
-          className="relative max-h-[420px] overflow-hidden md:max-h-none md:aspect-[4/5]"
+            className="relative aspect-[4/3] max-h-[280px] overflow-hidden sm:max-h-[420px] md:max-h-none md:aspect-[4/5]"
         >
           <img
             src="/images/location-5.jpg"
@@ -45,14 +45,14 @@ export default function HowItWorks({ steps }: Props) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.45, delay: index * 0.06 }}
-            className="group border-b border-ink/10 py-9 first:pt-0 last:border-b-0"
+            className="group border-b border-ink/10 py-7 first:pt-0 last:border-b-0 sm:py-9"
           >
-            <div className="grid grid-cols-[3.5rem_1fr] gap-5 md:grid-cols-[4.5rem_1fr] md:gap-8">
-              <span className="font-display text-3xl leading-none text-gold-muted transition-colors group-hover:text-gold md:text-4xl">
+            <div className="grid grid-cols-[2.75rem_1fr] gap-4 sm:grid-cols-[3.5rem_1fr] sm:gap-5 md:grid-cols-[4.5rem_1fr] md:gap-8">
+              <span className="font-display text-2xl leading-none text-gold-muted transition-colors group-hover:text-gold sm:text-3xl md:text-4xl">
                 {step.step}
               </span>
               <div>
-                <h3 className="heading-display mb-2.5 text-2xl text-ink md:text-[1.65rem]">{step.title}</h3>
+                <h3 className="heading-display mb-2 text-xl text-ink sm:mb-2.5 sm:text-2xl md:text-[1.65rem]">{step.title}</h3>
                 <p className="max-w-md text-[15px] leading-relaxed text-ink-muted">{step.description}</p>
               </div>
             </div>

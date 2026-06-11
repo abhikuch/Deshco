@@ -1,48 +1,56 @@
 ---
-import { siteConfig, heroContent } from '../data/site';
+import { siteConfig } from '../data/site';
 ---
 
 <div
   id="mobile-cta-bar"
-  class="fixed right-0 bottom-0 left-0 z-40 flex gap-2 border-t border-ink/10 bg-cream/95 p-3 backdrop-blur-md lg:hidden"
+  class="mobile-cta-bar fixed right-0 bottom-0 left-0 z-40 translate-y-full border-t border-ink/10 bg-cream/95 opacity-0 backdrop-blur-md transition-all duration-300 lg:hidden"
 >
-  <a
-    href={siteConfig.whatsapp}
-    target="_blank"
-    rel="noopener noreferrer"
-    class="flex flex-1 items-center justify-center border border-ink/15 px-4 py-3 text-[13px] font-medium tracking-wide text-ink transition-colors hover:border-ink"
-  >
-    {heroContent.ctaSecondary}
-  </a>
-  <a
-    href="#contact"
-    class="flex flex-1 items-center justify-center bg-ink px-4 py-3 text-[13px] font-medium tracking-wide text-white transition-colors hover:bg-ink-soft"
-  >
-    Revenue estimate
-  </a>
+  <div class="flex gap-2 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
+    <a
+      href={siteConfig.whatsapp}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex flex-1 items-center justify-center border border-ink/15 px-3 py-3 text-center text-[12px] font-medium tracking-wide text-ink transition-colors hover:border-ink sm:text-[13px]"
+    >
+      WhatsApp
+    </a>
+    <a
+      href="#contact"
+      class="flex flex-1 items-center justify-center bg-ink px-3 py-3 text-center text-[12px] font-medium tracking-wide text-white transition-colors hover:bg-ink-soft sm:text-[13px]"
+    >
+      Revenue estimate
+    </a>
+  </div>
 </div>
 
 <script>
   const bar = document.getElementById('mobile-cta-bar');
   const contact = document.getElementById('contact');
+  const hero = document.querySelector('[data-hero]');
 
   function updateBar() {
-    if (!bar || !contact) return;
-    const contactTop = contact.getBoundingClientRect().top;
-    const inContact = contactTop < window.innerHeight * 0.6;
-    bar.classList.toggle('translate-y-full', inContact);
-    bar.classList.toggle('opacity-0', inContact);
-    bar.classList.toggle('pointer-events-none', inContact);
+    if (!bar) return;
+
+    if (document.body.classList.contains('mobile-menu-open')) {
+      bar.classList.add('translate-y-full', 'opacity-0', 'pointer-events-none');
+      return;
+    }
+
+    const heroBottom = hero?.getBoundingClientRect().bottom ?? 0;
+    const pastHero = heroBottom < 80;
+    const inContact = contact
+      ? contact.getBoundingClientRect().top < window.innerHeight * 0.55
+      : false;
+
+    const visible = pastHero && !inContact;
+    bar.classList.toggle('translate-y-full', !visible);
+    bar.classList.toggle('opacity-0', !visible);
+    bar.classList.toggle('pointer-events-none', !visible);
   }
 
   window.addEventListener('scroll', updateBar, { passive: true });
+  window.addEventListener('resize', updateBar, { passive: true });
+  window.addEventListener('mobile-menu-toggle', updateBar);
   updateBar();
 </script>
-
-<style>
-  #mobile-cta-bar {
-    transition:
-      transform 0.3s ease,
-      opacity 0.3s ease;
-  }
-</style>

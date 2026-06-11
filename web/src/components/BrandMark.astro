@@ -5,7 +5,7 @@ interface Props {
 
 const { size = 'md' } = Astro.props;
 
-const heightClass = size === 'sm' ? 'h-10 md:h-11' : 'h-11 md:h-12';
+const heightClass = size === 'sm' ? 'h-8 max-w-[9.5rem] sm:h-10 md:h-11 md:max-w-none' : 'h-10 md:h-12';
 ---
 
 <img
