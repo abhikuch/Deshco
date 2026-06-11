@@ -19,7 +19,7 @@ import {
 <Layout title={pageSeo.home.title} description={pageSeo.home.description}>
   <div class="pb-[calc(5rem+env(safe-area-inset-bottom))] lg:pb-0">
     <!-- Hero -->
-    <section data-hero class="relative flex min-h-[86svh] items-end overflow-hidden sm:min-h-[92svh]">
+    <section data-hero class="relative flex min-h-[100dvh] items-end overflow-hidden sm:min-h-[92svh]">
       <div class="absolute inset-0 overflow-hidden">
         <img
           src={heroContent.image}
@@ -32,7 +32,7 @@ import {
         <div class="hero-scrim absolute inset-0" aria-hidden="true"></div>
       </div>
 
-      <div class="relative z-10 w-full px-5 pb-12 pt-24 sm:px-6 sm:pb-16 sm:pt-28 md:px-10 md:pb-24 lg:px-16">
+      <div class="relative z-10 w-full px-5 pb-[max(2.5rem,env(safe-area-inset-bottom))] pt-[calc(4.5rem+env(safe-area-inset-top))] sm:px-6 sm:pb-16 sm:pt-28 md:px-10 md:pb-24 lg:px-16">
         <div class="container-narrow max-w-2xl">
           <p class="eyebrow mb-4 text-gold-bright opacity-0 animate-[fadeUp_0.7s_ease-out_0.15s_forwards] sm:mb-5">
             {heroContent.eyebrow}

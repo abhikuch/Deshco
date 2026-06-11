@@ -5,7 +5,7 @@ import BrandMark from './BrandMark.astro';
 
 <header
   id="site-header"
-  class="fixed top-0 right-0 left-0 z-[110] border-b border-transparent backdrop-blur-sm transition-all duration-300"
+  class="fixed top-0 right-0 left-0 z-[110] border-b border-transparent pt-[env(safe-area-inset-top)] backdrop-blur-sm transition-all duration-300"
   data-theme="dark"
 >
   <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 sm:px-6 sm:py-4 md:px-10">
@@ -57,7 +57,7 @@ import BrandMark from './BrandMark.astro';
 
 <div
   id="mobile-menu"
-  class="pointer-events-none fixed inset-0 z-[100] bg-ink opacity-0 transition-opacity duration-300 lg:hidden"
+  class="pointer-events-none invisible fixed inset-0 z-[100] bg-ink opacity-0 transition-[opacity,visibility] duration-300 lg:hidden"
   aria-hidden="true"
 >
   <nav
@@ -102,6 +102,7 @@ import BrandMark from './BrandMark.astro';
     menuOpen = open;
     menuBtn?.setAttribute('aria-expanded', String(open));
     menuBtn?.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    mobileMenu?.classList.toggle('invisible', !open);
     mobileMenu?.classList.toggle('opacity-0', !open);
     mobileMenu?.classList.toggle('pointer-events-none', !open);
     mobileMenu?.setAttribute('aria-hidden', String(!open));

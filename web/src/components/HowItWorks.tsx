@@ -21,23 +21,23 @@ export default function HowItWorks({ steps }: Props) {
   const imageY = useTransform(scrollYProgress, [0, 1], ['3%', '-3%']);
 
   return (
-    <div ref={containerRef} className="grid items-start gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
-      <div className="lg:sticky lg:top-28">
+    <div ref={containerRef} className="grid items-start gap-8 sm:gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
+      <div className="order-2 lg:order-1 lg:sticky lg:top-28">
         <motion.div
           style={{ y: imageY }}
-            className="relative aspect-[4/3] max-h-[280px] overflow-hidden sm:max-h-[420px] md:max-h-none md:aspect-[4/5]"
+          className="relative aspect-[16/10] max-h-[220px] overflow-hidden sm:max-h-[320px] sm:aspect-[4/3] md:max-h-[420px] md:aspect-[4/5] lg:max-h-none"
         >
           <img
             src="/images/location-5.jpg"
             alt="Dubai holiday home managed by Deshco"
-            className="h-full min-h-[280px] w-full object-cover object-center"
+            className="h-full w-full object-cover object-center"
             loading="lazy"
           />
           <div className="image-scrim absolute inset-0" aria-hidden="true" />
         </motion.div>
       </div>
 
-      <div>
+      <div className="order-1 lg:order-2">
         {steps.map((step, index) => (
           <motion.div
             key={step.step}
