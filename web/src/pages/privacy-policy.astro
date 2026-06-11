@@ -2,8 +2,16 @@
 import Layout from '../layouts/Layout.astro';
 import LegalPage from '../components/LegalPage.astro';
 import { privacyPolicy } from '../data/legal';
+import { pageSeo } from '../data/site';
 ---
 
-<Layout title={privacyPolicy.title} description="Deshco Holiday Homes privacy policy.">
+<Layout
+  title={pageSeo.privacy.title}
+  description={pageSeo.privacy.description}
+  breadcrumbs={[
+    { name: 'Home', path: '/' },
+    { name: privacyPolicy.title, path: '/privacy-policy' },
+  ]}
+>
   <LegalPage title={privacyPolicy.title} sections={privacyPolicy.sections} />
 </Layout>

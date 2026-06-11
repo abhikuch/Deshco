@@ -1,0 +1,48 @@
+---
+import { siteConfig, heroContent } from '../data/site';
+---
+
+<div
+  id="mobile-cta-bar"
+  class="fixed right-0 bottom-0 left-0 z-40 flex gap-2 border-t border-ink/10 bg-cream/95 p-3 backdrop-blur-md lg:hidden"
+>
+  <a
+    href={siteConfig.whatsapp}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex flex-1 items-center justify-center border border-ink/15 px-4 py-3 text-[13px] font-medium tracking-wide text-ink transition-colors hover:border-ink"
+  >
+    {heroContent.ctaSecondary}
+  </a>
+  <a
+    href="#contact"
+    class="flex flex-1 items-center justify-center bg-ink px-4 py-3 text-[13px] font-medium tracking-wide text-white transition-colors hover:bg-ink-soft"
+  >
+    Revenue estimate
+  </a>
+</div>
+
+<script>
+  const bar = document.getElementById('mobile-cta-bar');
+  const contact = document.getElementById('contact');
+
+  function updateBar() {
+    if (!bar || !contact) return;
+    const contactTop = contact.getBoundingClientRect().top;
+    const inContact = contactTop < window.innerHeight * 0.6;
+    bar.classList.toggle('translate-y-full', inContact);
+    bar.classList.toggle('opacity-0', inContact);
+    bar.classList.toggle('pointer-events-none', inContact);
+  }
+
+  window.addEventListener('scroll', updateBar, { passive: true });
+  updateBar();
+</script>
+
+<style>
+  #mobile-cta-bar {
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
+  }
+</style>

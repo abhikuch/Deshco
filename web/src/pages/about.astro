@@ -1,9 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { aboutContent } from '../data/site';
+import { aboutContent, pageSeo } from '../data/site';
 ---
 
-<Layout title="About us" description="Learn about Deshco Holiday Homes — Dubai's trusted holiday home management company.">
+<Layout
+  title={pageSeo.about.title}
+  description={pageSeo.about.description}
+  breadcrumbs={[
+    { name: 'Home', path: '/' },
+    { name: 'About us', path: '/about' },
+  ]}
+>
   <section data-hero class="relative flex min-h-[55vh] items-end overflow-hidden bg-ink-soft">
     <div class="absolute inset-0">
       <img

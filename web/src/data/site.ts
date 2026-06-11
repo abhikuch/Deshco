@@ -19,156 +19,200 @@ export const siteConfig = {
   },
 } as const;
 
+export const pageSeo = {
+  home: {
+    title: 'Dubai Holiday Home Management',
+    description:
+      'Founder-managed holiday home management in Dubai. DET permits, listings, dynamic pricing, guest support, housekeeping, and transparent monthly payouts for property owners.',
+  },
+  about: {
+    title: 'About Us',
+    description:
+      'Meet the Deshco team. We help Dubai homeowners turn properties into high-performing holiday rentals with transparent, owner-first management.',
+  },
+  partner: {
+    title: 'List Your Property',
+    description:
+      'Partner with Deshco to list your Dubai home on Airbnb and top booking platforms. Full-service management, DET compliance, and itemised owner reporting.',
+  },
+  privacy: {
+    title: 'Privacy Policy',
+    description:
+      'How Deshco Holiday Homes collects, uses, and protects personal data for guests, homeowners, and website visitors in the UAE.',
+  },
+  terms: {
+    title: 'Terms & Conditions',
+    description:
+      'Terms and conditions for using Deshco Holiday Homes services, bookings, and property management in Dubai.',
+  },
+  cancellation: {
+    title: 'Cancellation Policy',
+    description:
+      'Deshco Holiday Homes cancellation, refund, and booking change policy for holiday home stays in Dubai.',
+  },
+} as const;
+
 export const navLinks = [
   { label: 'How it works', href: '/#how-it-works' },
-  { label: 'Services', href: '/#services' },
+  { label: 'Areas', href: '/#areas' },
   { label: 'About', href: '/about' },
   { label: 'List your property', href: '/list-your-property' },
 ] as const;
 
 export const heroContent = {
-  eyebrow: 'Dubai holiday home management',
-  headline: 'Turn your Dubai home into a high-performing holiday home.',
+  eyebrow: 'For Dubai property owners',
+  headline: 'Turn your Dubai home into steady short-stay income — without the hassle.',
   subheadline:
-    'We manage everything end-to-end: DET permits, listing, pricing, guest support, housekeeping, and maintenance.',
-  cta: "Let's Connect",
+    'Deshco handles DET permits, listings, pricing, guests, cleaning, and monthly payouts. Founder-managed. Fully transparent.',
+  ctaPrimary: 'Get a free revenue estimate',
+  ctaSecondary: 'Chat on WhatsApp',
   image: '/images/hero-interior.jpg',
 } as const;
+
+export const trustStrip = [
+  { label: '100% DET-compliant listings' },
+  { label: 'Founder-managed operations' },
+  { label: '5 Dubai areas covered' },
+  { label: '24/7 guest support' },
+] as const;
 
 export const howItWorksSteps = [
   {
     step: '01',
-    title: 'Defining the Vision',
+    title: 'Free property assessment',
     description:
-      'We understand your property goals and define the best revenue strategy.',
+      'Share your property details. We review location, layout, and revenue potential — then send a tailored estimate within 48 hours.',
   },
   {
     step: '02',
-    title: 'Market Research',
+    title: 'Setup, photos & listing launch',
     description:
-      'We analyze demand, pricing trends, and guest expectations in your area.',
+      'We handle DET permits, professional listing content, pricing strategy, and go live on Airbnb and top booking platforms.',
   },
   {
     step: '03',
-    title: 'Property Optimization',
+    title: 'Monthly reporting & payouts',
     description:
-      'We prepare and position your property for maximum visibility and bookings.',
-  },
-  {
-    step: '04',
-    title: 'Performance Testing',
-    description:
-      'We track results and continuously improve pricing and occupancy.',
-  },
-  {
-    step: '05',
-    title: 'Launch & Growth',
-    description:
-      'Your property starts generating consistent high-value returns.',
+      'Guests, housekeeping, and maintenance are managed end-to-end. You receive itemised statements and on-time payouts every month.',
   },
 ] as const;
 
-export const locations = [
-  { name: 'Downtown Dubai', image: '/images/location-1.jpg' },
-  { name: 'Marina', image: '/images/location-4.jpg' },
-  { name: 'Business Bay', image: '/images/location-5.jpg' },
-  { name: 'JLT', image: '/images/location-6.jpg' },
-  { name: 'Al Barsha', image: '/images/location-7.jpg' },
-] as const;
-
-export const services = [
+export const whatsIncluded = [
   {
     title: 'Listing & distribution',
     description:
-      'Airbnb/Booking listing creation, content, photography guidance, and calendar management.',
-    icon: '/images/listing.png',
+      'Airbnb and Booking.com setup, photography guidance, calendar management, and channel optimisation.',
   },
   {
     title: 'Dynamic pricing',
     description:
-      'Seasonality, events, comps, booking window optimization.',
-    icon: '/images/price.png',
+      'Seasonality, events, comps, and booking-window tuning to maximise occupancy and ADR.',
   },
   {
-    title: 'Guest experience (24/7)',
-    description: 'Fast response, check-in support, issue resolution.',
-    icon: '/images/satisfaction.png',
-  },
-  {
-    title: 'Maintenance coordination',
+    title: 'Guest experience',
     description:
-      'Vendor dispatch, issue triage, and owner approvals above thresholds.',
-    icon: '/images/house.png',
+      '24/7 guest communication, check-in support, and fast issue resolution — so you never field a late-night call.',
   },
   {
-    title: 'Compliance & reporting',
+    title: 'Housekeeping & compliance',
     description:
-      'Tourism Dirham collection and monthly remittance workflows.',
-    icon: '/images/regulatory-compliance.png',
-  },
-  {
-    title: 'Housekeeping & linen',
-    description: 'Hotel-grade cleaning standards with QC checks.',
-    icon: '/images/cleaning.png',
+      'Hotel-grade turnovers, Tourism Dirham collection, DET compliance, and post-stay photo inspections.',
   },
 ] as const;
 
-export const transparencyFeatures = [
+export const areasWeServe = [
   {
-    title: 'Fixed Payouts, Itemised Statements',
-    description:
-      'On-time payouts with detailed income and expense breakdowns.',
+    name: 'Downtown Dubai',
+    note: 'Strong tourist demand · premium nightly rates',
+    image: '/images/location-1.jpg',
   },
   {
-    title: 'Pre-Approved Repair Reserve',
-    description:
-      'Quick fixes handled within agreed limits—no surprises.',
+    name: 'Dubai Marina',
+    note: 'High occupancy · waterfront appeal',
+    image: '/images/location-4.jpg',
   },
   {
-    title: 'Post-Stay Inspection Proof',
-    description:
-      'Photo inspections are shared after every guest turnover.',
+    name: 'Business Bay',
+    note: 'Corporate & leisure mix · canal views',
+    image: '/images/location-5.jpg',
   },
   {
-    title: '100% DET-Compliant Listings',
-    description:
-      'We list only after all approvals and licenses are in place.',
+    name: 'JLT',
+    note: 'Consistent short-stay demand',
+    image: '/images/location-6.jpg',
+  },
+  {
+    name: 'Al Barsha',
+    note: 'Family-friendly · near key attractions',
+    image: '/images/location-7.jpg',
   },
 ] as const;
+
+export const whyDeshco = [
+  {
+    title: 'Founder-managed, not call-centre',
+    description:
+      'Every owner works directly with our founding team. No ticket queues, no account hand-offs — just people who know your property.',
+  },
+  {
+    title: 'Itemised payouts, no hidden fees',
+    description:
+      'Fixed payout schedules with detailed income and expense breakdowns. You always know exactly what you earned and why.',
+  },
+  {
+    title: 'Post-stay inspection proof',
+    description:
+      'Photo inspections shared after every guest turnover, so you see the condition of your home without being there.',
+  },
+  {
+    title: 'Listed only when fully compliant',
+    description:
+      'We never go live without DET approvals and licences in place. Your property stays protected from day one.',
+  },
+] as const;
+
+/** @deprecated Use whatsIncluded on homepage */
+export const services = whatsIncluded;
+
+/** @deprecated Use whyDeshco on homepage */
+export const transparencyFeatures = whyDeshco;
+
+/** @deprecated Use areasWeServe on homepage */
+export const locations = areasWeServe.map(({ name, image }) => ({ name, image }));
 
 export const partnerBenefits = [
   {
-    title: 'Increased Exposure',
+    title: 'Increased exposure',
     description:
-      'We advertise your home to discerning tourists and help you uncover its true potential as a reliable source of income.',
+      'Your property listed on Airbnb, Booking.com, and our distribution channels — positioned for high-value short-stay guests.',
   },
   {
-    title: 'Stress-Free Maintenance',
+    title: 'Hands-off maintenance',
     description:
-      'We assure complete safety and quality maintenance of your home while hosting guests.',
+      'Cleaning, linen, vendor coordination, and post-stay inspections handled end-to-end. Your home stays guest-ready.',
   },
   {
-    title: 'Guest Filtering',
+    title: 'Vetted guests only',
     description:
-      'We confirm the genuinity of all our guests and assure high-value tourists access to your coveted home.',
+      'We screen every booking. Your property is protected with clear house rules and documented check-in/out.',
   },
   {
-    title: 'Flexibility',
+    title: 'Owner flexibility',
     description:
-      'Homeowners have complete flexibility in setting aside dates for their personal visits and hosting tourists.',
+      'Block dates for personal use anytime. You stay in control of your calendar while we manage everything else.',
   },
 ] as const;
 
 export const aboutContent = {
   headline: 'Who We Are',
   intro: [
-    'Deshco Holiday Homes was born from a simple idea: luxury stays should feel personal, effortless, and memorable.',
-    'We create access to exclusive holiday homes designed for families and travelers who value comfort, privacy, and refined living. A villa that feels like your own—where every stay feels familiar yet special—is a luxury few experience. We exist to make that luxury accessible.',
-    'From carefully selected locations to thoughtfully designed spaces, every Deshco home is curated to deliver an elevated staycation experience that feels both indulgent and welcoming.',
+    'Deshco Holiday Homes helps Dubai property owners earn from short-stay rentals — without the operational burden.',
+    'We are a founder-managed holiday home company built on transparency: DET-compliant listings, itemised monthly payouts, and direct access to the people running your property.',
+    'Whether you own in Downtown, the Marina, or Business Bay, we handle permits, pricing, guests, housekeeping, and maintenance so you can focus on returns, not day-to-day hosting.',
   ],
   experience: {
-    title: 'The Deshco Experience',
-    text: "Come be part of unforgettable Dubai moments — mornings with skyline views, sunset walks by the marina, desert escapes under a sky full of stars, and nights that end with city lights and great food. The Deshco Life in Dubai is just a plan away — and we'll curate it for you, too!",
+    title: 'Our approach',
+    text: 'We keep portfolios intentionally small so every home gets founder-level attention — not a call-centre script. That means faster decisions, clearer reporting, and a management partner who treats your property like their own.',
   },
   founders: [
     {

@@ -1,0 +1,18 @@
+---
+import { trustStrip } from '../data/site';
+---
+
+<div class="border-y border-ink/8 bg-white">
+  <div class="container-wide px-6 py-5 md:px-10 lg:px-16">
+    <ul class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 md:gap-x-12">
+      {
+        trustStrip.map((item) => (
+          <li class="flex items-center gap-2.5 text-[13px] text-ink-muted">
+            <span class="h-1 w-1 shrink-0 rounded-full bg-gold" aria-hidden="true" />
+            {item.label}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>

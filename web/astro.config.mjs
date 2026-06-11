@@ -5,6 +5,7 @@ import react from '@astrojs/react';
 import sanity from '@sanity/astro';
 
 import vercel from '@astrojs/vercel';
+import sitemap from '@astrojs/sitemap';
 
 const projectId = process.env.PUBLIC_SANITY_PROJECT_ID || 'placeholder';
 const dataset = process.env.PUBLIC_SANITY_DATASET || 'production';
@@ -24,6 +25,9 @@ export default defineConfig({
       dataset,
       useCdn: true,
       studioBasePath: '/admin',
+    }),
+    sitemap({
+      filter: (page) => !page.includes('/admin') && !page.includes('/api/'),
     }),
   ],
 

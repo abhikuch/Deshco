@@ -139,7 +139,7 @@ export default function ContactForm() {
           disabled={status === 'loading'}
           className="w-full bg-ink px-8 py-3.5 text-[13px] font-medium tracking-wide text-white transition-colors hover:bg-ink-soft disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
         >
-          {status === 'loading' ? 'Sending...' : 'Submit enquiry'}
+          {status === 'loading' ? 'Sending...' : 'Get my revenue estimate'}
         </button>
       </form>
     </div>

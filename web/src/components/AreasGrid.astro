@@ -1,0 +1,38 @@
+---
+import { areasWeServe } from '../data/site';
+---
+
+<section id="areas" class="section-padding bg-cream">
+  <div class="container-wide">
+    <div class="mb-12 max-w-xl">
+      <p class="eyebrow mb-3">Coverage</p>
+      <h2 class="heading-display mb-3 text-4xl text-ink md:text-[2.75rem]">Areas we serve</h2>
+      <p class="text-[15px] text-ink-muted">
+        Now onboarding property owners across Dubai's highest-demand short-stay neighbourhoods.
+      </p>
+    </div>
+
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        areasWeServe.map((area) => (
+          <article class="group overflow-hidden border border-ink/8 bg-white">
+            <div class="aspect-[16/10] overflow-hidden bg-cream-dark">
+              <img
+                src={area.image}
+                alt={`Holiday home management in ${area.name}`}
+                class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                loading="lazy"
+                width="640"
+                height="400"
+              />
+            </div>
+            <div class="p-5">
+              <h3 class="heading-display mb-1.5 text-xl text-ink">{area.name}</h3>
+              <p class="text-[14px] text-ink-muted">{area.note}</p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

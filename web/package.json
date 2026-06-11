@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^5.0.7",
+    "@astrojs/sitemap": "^3.7.3",
     "@astrojs/vercel": "^10.0.8",
     "@sanity/astro": "^3.4.1",
     "@sanity/client": "^7.22.1",

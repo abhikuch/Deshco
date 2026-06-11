@@ -1,12 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ContactForm from '../components/ContactForm';
-import { partnerBenefits } from '../data/site';
+import { partnerBenefits, pageSeo } from '../data/site';
 ---
 
 <Layout
-  title="List your property"
-  description="Partner with Deshco Holiday Homes to turn your Dubai property into a high-performing holiday rental."
+  title={pageSeo.partner.title}
+  description={pageSeo.partner.description}
+  breadcrumbs={[
+    { name: 'Home', path: '/' },
+    { name: 'List your property', path: '/list-your-property' },
+  ]}
 >
   <section data-hero class="relative flex min-h-[58vh] items-end overflow-hidden bg-ink-soft">
     <div class="absolute inset-0">
@@ -23,11 +27,11 @@ import { partnerBenefits } from '../data/site';
       <div class="container-narrow max-w-2xl">
         <p class="eyebrow mb-4 text-gold-bright">For homeowners</p>
         <h1 class="heading-display mb-5 text-4xl text-white md:text-5xl">
-          Partner as a property owner
+          List your Dubai property with Deshco
         </h1>
         <p class="text-[16px] leading-relaxed text-white/85 md:text-[17px]">
-          Discover the true potential of your home with hassle-free holiday rentals — list with
-          Deshco for the ultimate homeowner experience.
+          Founder-managed holiday home management — DET compliance, transparent payouts, and full
+          operational support from day one.
         </p>
       </div>
     </div>

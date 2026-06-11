@@ -28,8 +28,8 @@ export default function HowItWorks({ steps }: Props) {
           className="relative max-h-[420px] overflow-hidden md:max-h-none md:aspect-[4/5]"
         >
           <img
-            src="/images/hero-interior.jpg"
-            alt="Refined Dubai holiday home interior"
+            src="/images/location-5.jpg"
+            alt="Dubai holiday home managed by Deshco"
             className="h-full min-h-[280px] w-full object-cover object-center"
             loading="lazy"
           />

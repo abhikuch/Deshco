@@ -2,8 +2,16 @@
 import Layout from '../layouts/Layout.astro';
 import LegalPage from '../components/LegalPage.astro';
 import { cancellationPolicy } from '../data/legal';
+import { pageSeo } from '../data/site';
 ---
 
-<Layout title={cancellationPolicy.title} description="Deshco Holiday Homes cancellation and refund policy.">
+<Layout
+  title={pageSeo.cancellation.title}
+  description={pageSeo.cancellation.description}
+  breadcrumbs={[
+    { name: 'Home', path: '/' },
+    { name: cancellationPolicy.title, path: '/cancellation-policy' },
+  ]}
+>
   <LegalPage title={cancellationPolicy.title} sections={cancellationPolicy.sections} />
 </Layout>

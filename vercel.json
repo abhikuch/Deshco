@@ -2,5 +2,27 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "installCommand": "npm install --prefix web",
   "buildCommand": "npm run build",
-  "framework": null
+  "framework": null,
+  "redirects": [
+    {
+      "source": "/about-us",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/about-us/",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/partner-with-us",
+      "destination": "/list-your-property",
+      "permanent": true
+    },
+    {
+      "source": "/partner-with-us/",
+      "destination": "/list-your-property",
+      "permanent": true
+    }
+  ]
 }

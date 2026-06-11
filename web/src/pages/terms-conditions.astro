@@ -2,8 +2,16 @@
 import Layout from '../layouts/Layout.astro';
 import LegalPage from '../components/LegalPage.astro';
 import { termsConditions } from '../data/legal';
+import { pageSeo } from '../data/site';
 ---
 
-<Layout title={termsConditions.title} description="Deshco Holiday Homes terms and conditions.">
+<Layout
+  title={pageSeo.terms.title}
+  description={pageSeo.terms.description}
+  breadcrumbs={[
+    { name: 'Home', path: '/' },
+    { name: termsConditions.title, path: '/terms-conditions' },
+  ]}
+>
   <LegalPage title={termsConditions.title} sections={termsConditions.sections} />
 </Layout>
