@@ -24,7 +24,7 @@ export function buildOrganizationSchema() {
     description: siteConfig.description,
     url: siteConfig.url,
     image: absoluteUrl(seoDefaults.ogImage),
-    logo: absoluteUrl('/images/logo.png'),
+    logo: absoluteUrl('/images/logo-header.png'),
     telephone: siteConfig.phone,
     email: siteConfig.email,
     address: {

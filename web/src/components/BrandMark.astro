@@ -1,24 +1,19 @@
 ---
 interface Props {
-  variant?: 'light' | 'dark';
   size?: 'sm' | 'md';
 }
 
-const { variant = 'light', size = 'md' } = Astro.props;
+const { size = 'md' } = Astro.props;
 
-const textClass = variant === 'light' ? 'text-white' : 'text-ink';
-const subClass = variant === 'light' ? 'text-white/55' : 'text-ink-faint';
-const sizeClass = size === 'sm' ? 'text-lg' : 'text-xl md:text-[1.35rem]';
-const subSizeClass = size === 'sm' ? 'text-[9px]' : 'text-[10px]';
+const heightClass = size === 'sm' ? 'h-10 md:h-11' : 'h-11 md:h-12';
 ---
 
-<span class="brand-mark inline-flex flex-col leading-none">
-  <span class={`brand-primary font-display font-normal tracking-[0.08em] ${sizeClass} ${textClass}`}>
-    Deshco
-  </span>
-  <span
-    class={`brand-secondary mt-1 font-body font-medium tracking-[0.28em] uppercase ${subSizeClass} ${subClass}`}
-  >
-    Holiday Homes
-  </span>
-</span>
+<img
+  src="/images/logo-header.png"
+  alt="Deshco Holiday Homes"
+  class:list={['w-auto object-contain', heightClass]}
+  width="245"
+  height="82"
+  loading="eager"
+  decoding="async"
+/>
