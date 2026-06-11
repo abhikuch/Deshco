@@ -54,6 +54,7 @@ export const pageSeo = {
 
 export const navLinks = [
   { label: 'How it works', href: '/#how-it-works' },
+  { label: 'Services', href: '/#services' },
   { label: 'Areas', href: '/#areas' },
   { label: 'About', href: '/about' },
   { label: 'List your property', href: '/list-your-property' },
@@ -120,6 +121,40 @@ export const whatsIncluded = [
   },
 ] as const;
 
+export const ourServices = [
+  {
+    title: 'Listing & distribution',
+    description:
+      'Airbnb/Booking listing creation, content, photography guidance, and calendar management.',
+    icon: '/images/listing.png',
+  },
+  {
+    title: 'Dynamic pricing',
+    description: 'Seasonality, events, comps, booking window optimization.',
+    icon: '/images/price.png',
+  },
+  {
+    title: 'Guest experience (24/7)',
+    description: 'Fast response, check-in support, issue resolution.',
+    icon: '/images/satisfaction.png',
+  },
+  {
+    title: 'Maintenance coordination',
+    description: 'Vendor dispatch, issue triage, and owner approvals above thresholds.',
+    icon: '/images/house.png',
+  },
+  {
+    title: 'Compliance & reporting',
+    description: 'Tourism Dirham collection and monthly remittance workflows.',
+    icon: '/images/regulatory-compliance.png',
+  },
+  {
+    title: 'Housekeeping & linen',
+    description: 'Hotel-grade cleaning standards with QC checks.',
+    icon: '/images/cleaning.png',
+  },
+] as const;
+
 export const areasWeServe = [
   {
     name: 'Downtown Dubai',
@@ -171,8 +206,8 @@ export const whyDeshco = [
   },
 ] as const;
 
-/** @deprecated Use whatsIncluded on homepage */
-export const services = whatsIncluded;
+/** @deprecated Use ourServices on homepage */
+export const services = ourServices;
 
 /** @deprecated Use whyDeshco on homepage */
 export const transparencyFeatures = whyDeshco;
