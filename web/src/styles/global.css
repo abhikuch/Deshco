@@ -4,15 +4,15 @@
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-body: "DM Sans", system-ui, sans-serif;
 
-  --color-ink: #121110;
-  --color-ink-soft: #1c1a17;
-  --color-ink-muted: #4a4640;
-  --color-ink-faint: #6b6560;
+  --color-ink: #083F30;
+  --color-ink-soft: #062e24;
+  --color-ink-muted: #3f5c53;
+  --color-ink-faint: #698078;
   --color-cream: #f7f4ef;
   --color-cream-dark: #ebe5dc;
-  --color-gold: #b8956a;
-  --color-gold-bright: #d4b88a;
-  --color-gold-muted: #9a7d58;
+  --color-gold: #E4BC66;
+  --color-gold-bright: #E4BC66;
+  --color-gold-muted: #9d7830;
   --color-sand: #8a7a66;
   --color-white: #faf8f5;
 }
@@ -67,10 +67,10 @@
   .hero-scrim {
     background: linear-gradient(
       180deg,
-      rgba(18, 17, 16, 0.55) 0%,
-      rgba(18, 17, 16, 0.35) 28%,
-      rgba(18, 17, 16, 0.82) 72%,
-      rgba(18, 17, 16, 0.95) 100%
+      rgba(8, 63, 48, 0.62) 0%,
+      rgba(8, 63, 48, 0.4) 28%,
+      rgba(8, 63, 48, 0.84) 72%,
+      rgba(8, 63, 48, 0.96) 100%
     );
   }
 
@@ -78,10 +78,10 @@
     .hero-scrim {
       background: linear-gradient(
         105deg,
-        rgba(18, 17, 16, 0.92) 0%,
-        rgba(18, 17, 16, 0.78) 42%,
-        rgba(18, 17, 16, 0.35) 68%,
-        rgba(18, 17, 16, 0.15) 100%
+        rgba(8, 63, 48, 0.94) 0%,
+        rgba(8, 63, 48, 0.78) 42%,
+        rgba(8, 63, 48, 0.38) 68%,
+        rgba(8, 63, 48, 0.16) 100%
       );
     }
   }
@@ -89,8 +89,8 @@
   .image-scrim {
     background: linear-gradient(
       to top,
-      rgba(18, 17, 16, 0.88) 0%,
-      rgba(18, 17, 16, 0.4) 45%,
+      rgba(8, 63, 48, 0.88) 0%,
+      rgba(8, 63, 48, 0.4) 45%,
       transparent 100%
     );
   }
@@ -112,7 +112,7 @@
   }
 
   #site-header[data-theme='dark'] .nav-cta {
-    @apply border-white/25 text-white hover:border-gold-bright hover:text-gold-bright;
+    @apply border-gold-bright text-gold-bright hover:bg-gold-bright hover:text-ink;
   }
 
   #site-header[data-theme='dark'] .menu-line {
@@ -140,7 +140,7 @@
   }
 
   #site-header[data-theme='light'] .nav-cta {
-    @apply border-ink/15 text-ink hover:border-ink;
+    @apply border-ink text-ink hover:bg-gold-bright hover:border-gold-bright;
   }
 
   #site-header[data-theme='light'] .menu-line {

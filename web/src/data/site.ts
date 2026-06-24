@@ -73,7 +73,7 @@ export const heroContent = {
 export const trustStrip = [
   { label: '100% DET-compliant listings' },
   { label: 'Founder-managed operations' },
-  { label: '5 Dubai areas covered' },
+  { label: '6 Dubai areas covered' },
   { label: '24/7 guest support' },
 ] as const;
 
@@ -180,6 +180,11 @@ export const areasWeServe = [
     name: 'Al Barsha',
     note: 'Family-friendly · near key attractions',
     image: '/images/location-7.jpg',
+  },
+  {
+    name: 'Palm Jumeirah',
+    note: 'Beachfront appeal · premium leisure stays',
+    image: '/images/location-4.jpg',
   },
 ] as const;
 

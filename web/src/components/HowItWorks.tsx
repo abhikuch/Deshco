@@ -21,11 +21,11 @@ export default function HowItWorks({ steps }: Props) {
   const imageY = useTransform(scrollYProgress, [0, 1], ['3%', '-3%']);
 
   return (
-    <div ref={containerRef} className="grid items-start gap-8 sm:gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
+    <div ref={containerRef} className="grid items-start gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20">
       <div className="order-2 lg:order-1 lg:sticky lg:top-28">
         <motion.div
           style={{ y: imageY }}
-          className="relative aspect-[16/10] max-h-[220px] overflow-hidden sm:max-h-[320px] sm:aspect-[4/3] md:max-h-[420px] md:aspect-[4/5] lg:max-h-none"
+          className="relative aspect-[16/10] max-h-[220px] overflow-hidden sm:max-h-[320px] sm:aspect-[4/3] md:max-h-[420px] md:aspect-[4/5] lg:aspect-[4/3] lg:max-h-[420px] xl:max-h-[460px]"
         >
           <img
             src="/images/location-5.jpg"

@@ -25,3 +25,4 @@ Thumbs.db
 
 # Scraped HTML (keep assets + inventory)
 scraped/content/
+.vercel

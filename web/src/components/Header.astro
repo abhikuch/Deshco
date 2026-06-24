@@ -37,6 +37,15 @@ import BrandMark from './BrandMark.astro';
       </a>
     </div>
 
+    <a
+      href={siteConfig.whatsapp}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mobile-menu-header-cta pointer-events-none absolute top-1/2 left-1/2 z-[120] hidden -translate-x-1/2 -translate-y-1/2 border border-gold-bright bg-gold-bright px-3 py-2 text-[11px] font-medium tracking-wide whitespace-nowrap text-ink opacity-0 transition-opacity duration-300 sm:px-4 sm:text-[12px] lg:hidden"
+    >
+      Enquire on WhatsApp
+    </a>
+
     <button
       id="mobile-menu-btn"
       type="button"
@@ -74,14 +83,6 @@ import BrandMark from './BrandMark.astro';
         </a>
       ))
     }
-    <a
-      href={siteConfig.whatsapp}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="mt-2 inline-flex w-fit border border-gold-bright px-6 py-3 text-[13px] font-medium tracking-wide text-gold-bright"
-    >
-      Enquire on WhatsApp
-    </a>
   </nav>
 </div>
 
@@ -145,3 +146,11 @@ import BrandMark from './BrandMark.astro';
     });
   });
 </script>
+
+<style>
+  :global(body.mobile-menu-open .mobile-menu-header-cta) {
+    display: inline-flex;
+    opacity: 1;
+    pointer-events: auto;
+  }
+</style>
