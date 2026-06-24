@@ -25,11 +25,11 @@ export default function HowItWorks({ steps }: Props) {
       <div className="order-2 lg:order-1 lg:sticky lg:top-28">
         <motion.div
           style={{ y: imageY }}
-          className="relative aspect-[16/10] max-h-[220px] overflow-hidden sm:max-h-[320px] sm:aspect-[4/3] md:max-h-[420px] md:aspect-[4/5] lg:aspect-[4/3] lg:max-h-[420px] xl:max-h-[460px]"
+          className="relative aspect-[4/5] max-h-[360px] overflow-hidden sm:max-h-[460px] lg:max-h-[520px]"
         >
           <img
-            src="/images/location-5.jpg"
-            alt="Dubai holiday home managed by Deshco"
+            src="/images/location-4.jpg"
+            alt="Burj Khalifa in Downtown Dubai"
             className="h-full w-full object-cover object-center"
             loading="lazy"
           />

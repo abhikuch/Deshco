@@ -73,7 +73,7 @@ export const heroContent = {
 export const trustStrip = [
   { label: '100% DET-compliant listings' },
   { label: 'Founder-managed operations' },
-  { label: '6 Dubai areas covered' },
+  { label: 'Key Dubai districts covered' },
   { label: '24/7 guest support' },
 ] as const;
 
@@ -158,33 +158,28 @@ export const ourServices = [
 export const areasWeServe = [
   {
     name: 'Downtown Dubai',
-    note: 'Strong tourist demand · premium nightly rates',
+    note: 'Dubai Opera, Dubai Mall, and premium nightly rates',
     image: '/images/location-1.jpg',
   },
   {
-    name: 'Dubai Marina',
-    note: 'High occupancy · waterfront appeal',
+    name: 'Burj Khalifa District',
+    note: 'Iconic Downtown address · strong tourist demand',
     image: '/images/location-4.jpg',
   },
   {
     name: 'Business Bay',
-    note: 'Corporate & leisure mix · canal views',
+    note: 'Corporate and leisure mix · canal-side stays',
     image: '/images/location-5.jpg',
   },
   {
-    name: 'JLT',
-    note: 'Consistent short-stay demand',
+    name: 'Dubai Marina & JBR',
+    note: 'Waterfront appeal · high guest occupancy',
     image: '/images/location-6.jpg',
   },
   {
-    name: 'Al Barsha',
-    note: 'Family-friendly · near key attractions',
+    name: 'Al Fahidi / Bur Dubai',
+    note: 'Heritage stays · close to Old Dubai attractions',
     image: '/images/location-7.jpg',
-  },
-  {
-    name: 'Palm Jumeirah',
-    note: 'Beachfront appeal · premium leisure stays',
-    image: '/images/location-4.jpg',
   },
 ] as const;
 
