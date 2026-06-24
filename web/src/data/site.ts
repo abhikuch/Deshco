@@ -181,6 +181,11 @@ export const areasWeServe = [
     note: 'Heritage stays · close to Old Dubai attractions',
     image: '/images/location-7.jpg',
   },
+  {
+    name: 'Palm Jumeirah',
+    note: 'Beachfront villas · luxury leisure demand',
+    image: '/images/location-palm-jumeirah.jpg',
+  },
 ] as const;
 
 export const whyDeshco = [
